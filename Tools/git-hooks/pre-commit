@@ -1,0 +1,41 @@
+#!/bin/sh
+# Pre-commit: lint STAGED Swift files, enforcing the SwiftFormat version pinned in Mintfile.
+# Emergency bypass:  git commit --no-verify
+# SwiftFormat is installed from Mintfile via `mint bootstrap --link`.
+# The hook only checks that the swiftformat on $PATH matches the pin.
+
+export PATH="$HOME/.mint/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+staged=$(git diff --cached --name-only -z --diff-filter=ACMR -- '*.swift' | tr '\0' '\n')
+[ -z "$staged" ] && exit 0
+
+repo_root=$(git rev-parse --show-toplevel)
+pinned=$(sed -n 's|.*SwiftFormat@||p' "$repo_root/Mintfile" 2>/dev/null | head -1 | tr -d '[:space:]')
+
+if [ -z "$pinned" ]; then
+  echo "error: could not read the SwiftFormat version pin from Mintfile."
+  exit 1
+fi
+
+if ! command -v swiftformat >/dev/null 2>&1; then
+  echo "error: SwiftFormat not installed. Mintfile pins $pinned — install it with: mint bootstrap --link"
+  exit 1
+fi
+
+installed=$(swiftformat --version 2>/dev/null | tr -d '[:space:]')
+if [ "$installed" != "$pinned" ]; then
+  echo "error: SwiftFormat $installed is on \$PATH, but Mintfile pins $pinned."
+  echo "       install the pinned version with: mint bootstrap --link"
+  exit 1
+fi
+
+# Lint the staged (index) content, not the working tree.
+git diff --cached --name-only -z --diff-filter=ACMR -- '*.swift' \
+  | xargs -0 -n1 sh -c 'git show ":$1" | swiftformat stdin --lint --stdinpath "$1" >/dev/null' _
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "error: SwiftFormat ($pinned) found unformatted code in staged files."
+  echo "       fix: swiftformat $(echo "$staged" | tr '\n' ' ')  then re-stage and commit again."
+  exit 1
+fi
+exit 0
