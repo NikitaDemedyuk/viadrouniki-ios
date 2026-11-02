@@ -1,8 +1,8 @@
 #!/bin/sh
 # Pre-commit: lint STAGED Swift files, enforcing the SwiftFormat version pinned in Mintfile.
 # Emergency bypass:  git commit --no-verify
-# The pin is enforced by comparing the SwiftFormat on $PATH with the Mintfile pin
-# (not via `mint run`), and a mismatch is refused — no silent formatting drift.
+# SwiftFormat is installed from Mintfile via `mint bootstrap --link`.
+# The hook only checks that the swiftformat on $PATH matches the pin.
 
 export PATH="$HOME/.mint/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 
@@ -18,14 +18,14 @@ if [ -z "$pinned" ]; then
 fi
 
 if ! command -v swiftformat >/dev/null 2>&1; then
-  echo "error: SwiftFormat not installed. Mintfile pins $pinned — install that version."
+  echo "error: SwiftFormat not installed. Mintfile pins $pinned — install it with: mint bootstrap --link"
   exit 1
 fi
 
 installed=$(swiftformat --version 2>/dev/null | tr -d '[:space:]')
 if [ "$installed" != "$pinned" ]; then
   echo "error: SwiftFormat $installed is on \$PATH, but Mintfile pins $pinned."
-  echo "       install the pinned version so formatting stays reproducible."
+  echo "       install the pinned version with: mint bootstrap --link"
   exit 1
 fi
 
