@@ -8,3 +8,4 @@
 --self remove
 --importgrouping testable-last
 --exclude Pods,.build,DerivedData,Viadrouniki.xcodeproj
+--header strip
