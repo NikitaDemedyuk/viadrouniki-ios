@@ -6,11 +6,27 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		1109E888309FBDB500B0348C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 114A575C30893E4A00ED0C08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 114A576330893E4A00ED0C08;
+			remoteInfo = Viadrouniki;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1109E884309FBDB500B0348C /* ViadrounikiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViadrounikiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		114A576430893E4A00ED0C08 /* Viadrouniki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Viadrouniki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		1109E885309FBDB500B0348C /* ViadrounikiTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ViadrounikiTests;
+			sourceTree = "<group>";
+		};
 		114A576630893E4A00ED0C08 /* Viadrouniki */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Viadrouniki;
@@ -19,6 +35,11 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1109E881309FBDB500B0348C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
 		114A576130893E4A00ED0C08 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
@@ -31,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				114A576630893E4A00ED0C08 /* Viadrouniki */,
+				1109E885309FBDB500B0348C /* ViadrounikiTests */,
 				114A576530893E4A00ED0C08 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				114A576430893E4A00ED0C08 /* Viadrouniki.app */,
+				1109E884309FBDB500B0348C /* ViadrounikiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,6 +69,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1109E883309FBDB500B0348C /* ViadrounikiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1109E88C309FBDB500B0348C /* Build configuration list for PBXNativeTarget "ViadrounikiTests" */;
+			buildPhases = (
+				1109E880309FBDB500B0348C /* Sources */,
+				1109E881309FBDB500B0348C /* Frameworks */,
+				1109E882309FBDB500B0348C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1109E889309FBDB500B0348C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1109E885309FBDB500B0348C /* ViadrounikiTests */,
+			);
+			name = ViadrounikiTests;
+			productName = ViadrounikiTests;
+			productReference = 1109E884309FBDB500B0348C /* ViadrounikiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		114A576330893E4A00ED0C08 /* Viadrouniki */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 114A576F30893E4B00ED0C08 /* Build configuration list for PBXNativeTarget "Viadrouniki" */;
@@ -71,9 +115,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2710;
+				LastSwiftUpdateCheck = 2720;
 				LastUpgradeCheck = 2710;
 				TargetAttributes = {
+					1109E883309FBDB500B0348C = {
+						CreatedOnToolsVersion = 27.2;
+						TestTargetID = 114A576330893E4A00ED0C08;
+					};
 					114A576330893E4A00ED0C08 = {
 						CreatedOnToolsVersion = 27.1;
 					};
@@ -94,11 +142,17 @@
 			projectRoot = "";
 			targets = (
 				114A576330893E4A00ED0C08 /* Viadrouniki */,
+				1109E883309FBDB500B0348C /* ViadrounikiTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1109E882309FBDB500B0348C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
 		114A576230893E4A00ED0C08 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
@@ -107,6 +161,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1109E880309FBDB500B0348C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 		114A576030893E4A00ED0C08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
@@ -114,7 +173,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1109E889309FBDB500B0348C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 114A576330893E4A00ED0C08 /* Viadrouniki */;
+			targetProxy = 1109E888309FBDB500B0348C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1109E88A309FBDB500B0348C /* Debug configuration for PBXNativeTarget "ViadrounikiTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HWG25L3MNF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitademedyuk.ViadrounikiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Viadrouniki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Viadrouniki";
+			};
+			name = Debug;
+		};
+		1109E88B309FBDB500B0348C /* Release configuration for PBXNativeTarget "ViadrounikiTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HWG25L3MNF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitademedyuk.ViadrounikiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Viadrouniki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Viadrouniki";
+			};
+			name = Release;
+		};
 		114A576D30893E4B00ED0C08 /* Debug configuration for PBXProject "Viadrouniki" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -305,6 +416,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1109E88C309FBDB500B0348C /* Build configuration list for PBXNativeTarget "ViadrounikiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1109E88A309FBDB500B0348C /* Debug configuration for PBXNativeTarget "ViadrounikiTests" */,
+				1109E88B309FBDB500B0348C /* Release configuration for PBXNativeTarget "ViadrounikiTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
 		114A575F30893E4A00ED0C08 /* Build configuration list for PBXProject "Viadrouniki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
