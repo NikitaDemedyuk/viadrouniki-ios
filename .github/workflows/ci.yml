@@ -16,3 +16,13 @@ jobs:
 
       - name: List project schemes
         run: xcodebuild -list -project Viadrouniki.xcodeproj
+
+      - name: List available simulators
+        run: xcrun simctl list devices available
+
+      - name: Run tests
+        run: |
+          xcodebuild test \
+            -project Viadrouniki.xcodeproj \
+            -scheme Viadrouniki \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest'
