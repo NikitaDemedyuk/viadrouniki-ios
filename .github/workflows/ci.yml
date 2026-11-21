@@ -26,3 +26,14 @@ jobs:
             -project Viadrouniki.xcodeproj \
             -scheme Viadrouniki \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest'
+
+  lint:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Mint
+        run: brew install mint
+
+      - name: Lint with SwiftFormat
+        run: mint run swiftformat --lint .
