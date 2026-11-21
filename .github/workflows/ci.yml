@@ -4,28 +4,30 @@ on:
   push:
     branches: [main]
   pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
+  build-test:
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
 
+      - name: Select Xcode 26.6
+        run: sudo xcode-select -s /Applications/Xcode_26.6.app
+
       - name: Xcode version
         run: xcodebuild -version
-
-      - name: List project schemes
-        run: xcodebuild -list -project Viadrouniki.xcodeproj
-
-      - name: List available simulators
-        run: xcrun simctl list devices available
 
       - name: Run tests
         run: |
           xcodebuild test \
             -project Viadrouniki.xcodeproj \
             -scheme Viadrouniki \
-            -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest'
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
 
   lint:
     runs-on: macos-26
